@@ -10,13 +10,10 @@
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% if @chatroom.messages.any? %>
           <% @chatroom.messages.each do |message| %>
-            <div class="message-container" id="message-<%= message.id %>">
-              <i class="author">
-                <span><%= message.user.nickname %></span>
-                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </i>
-              <p><%= message.content %></p>
-            </div>
+            <!-- Long way: -->
+            <%#= render 'messages/message', message: message %>
+            <!-- Short way: -->
+            <%= render message %>
           <% end %>
         <% else %>
           <div class="message-container">
